@@ -1,0 +1,9 @@
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">{{ product.title }}<a href="{% url 'catalog:products_detail' product.id %}"></a></h5>
+    <h6 class="card-subtitle mb-2 text-muted">
+          {{ product.price_for_unit }}₽ за {{ product.unit_type }}; {% if product.in_box %}в коробке: {{ product.in_box }}{% endif %} <a href="{% url 'catalog:providers_detail' product.provider.id %}">{{ product.provider.brand }}</a>
+    </h6>
+  </div>
+</div>
+

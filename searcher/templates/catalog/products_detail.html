@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title%}
+{{ product.title }}
+{% endblock %}
+
+{% block content%}
+  <article>
+    <h5>{{ product.title }}</h5>
+    <p>{{ product.price_for_unit }} за {{ product.unit_type }}</p>
+    <p></p>
+    <p></p>
+  </article> 
+
+{% endblock%}

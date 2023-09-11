@@ -1,0 +1,21 @@
+{% load static %}
+<header>
+  <nav class="navbar navbar-light" style="background-color: lightskyblue">
+    <div class="container">
+      {% with request.resolver_match.view_name as view_name %}        
+        <ul class="nav  nav-pills">
+          <li class="nav-item">              
+            <a class="nav-link {% if view_name == 'catalog:products' %} active {% endif %}" href="{% url 'catalog:products' %}">
+              Каталог продуктов
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {% if view_name == 'catalog:providers' %} active {% endif %}" href="{% url 'catalog:providers' %}">
+              Поставщики
+            </a>
+          </li>
+        </ul>
+      {% endwith %}      
+    </div>
+  </nav> 
+</header>

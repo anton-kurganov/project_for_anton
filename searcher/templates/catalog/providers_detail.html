@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+{{ provider.brand }}
+{% endblock %}
+
+{% block content %}
+  <article>
+    <h3>{{ provider.name }}</h3>
+    <p>Сокращенное название: {{ provider.brand }}</p>
+    {% if provider.email %}<p>Электронная почта: {{ provider.email }}</p>{% endif %}
+    {% if provider.number %}<p>Номер телефона: {{ provider.number }}</p>{% endif %}
+    {% if provider.url %}<p>Url: <a href="{{provider.url}}">{{ provider.url }}</a></p>{% endif %}
+  </article> 
+  <h1>Все продукты поставщика</h1>
+  {% for product in product_list %}
+    <article class-"mb-5">
+      {% include "includes/product_card.html" %}
+    </article>
+  {% endfor %}
+
+{% endblock %}
