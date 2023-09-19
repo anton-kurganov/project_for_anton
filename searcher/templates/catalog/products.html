@@ -6,10 +6,14 @@
 {% endblock %}
 
 {% block content %}
-  <form class="mb-5" action="{% url 'catalog:products' %}">
-    <input class="form" type="search" placeholder="Поиск" aria-label="Поиск" name="search">
-    <button class="btn" type="submit">Искать</button>
+  <form class="mb-3" action="{% url 'catalog:products' %}">
+    <div class="mb-3">
+      <input class="form-control" type="search" placeholder="Поиск" aria-label="Поиск" name="search">
+    </div>
+    <button class="btn btn-primary" type="submit">Искать</button>
   </form>
+
+
   {% for product in product_list %}
     <article>
       {% include "includes/product_card.html" %}

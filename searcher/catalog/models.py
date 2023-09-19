@@ -47,8 +47,7 @@ class Product(models.Model):
         on_delete=models.CASCADE,
         verbose_name='Поставщик'
     )
-    price_for_unit = models.CharField(
-        max_length=50,
+    price_for_unit = models.FloatField(
         verbose_name='Цена за еденицу товара'
     )
     unit_type = models.CharField(

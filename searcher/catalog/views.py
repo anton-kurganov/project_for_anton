@@ -1,5 +1,4 @@
 from django.shortcuts import render, get_object_or_404
-
 from .models import Product, Provider
 
 
@@ -9,9 +8,18 @@ def products(request):
     if search_query:
         if len(search_query) > 4:
             search_query = search_query[1:-1]
-        product_list = Product.objects.filter(search_field__icontains=search_query)
+        product_list = (Product
+                        .objects
+                        .select_related('provider')
+                        .filter(search_field__icontains=search_query)
+                        .order_by('-price_for_unit')
+                        )
     else:
-        product_list = Product.objects.select_related('provider').all()
+        product_list = (Product
+                        .objects
+                        .select_related('provider')
+                        .order_by('-price_for_unit')
+                        .all())
     context = {
         'product_list': product_list,
     }
