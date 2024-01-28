@@ -12,8 +12,7 @@ def products(request):
                         .objects
                         .select_related('provider')
                         .filter(search_field__icontains=search_query)
-                        .order_by('-price_for_unit')
-                        )
+                        .order_by('-price_for_unit'))
     else:
         product_list = (Product
                         .objects
